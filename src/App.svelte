@@ -1,6 +1,6 @@
 <script>
-let x='Basic', width=100,height=100,fliph=false,flipv=false,blur=1,brightness=1,contrast=1,drop=1
-,grayscale=0,hue=1,invert=1,opacity=10,saturate=1
+let x='Basic', width=300,height=300,fliph=false,flipv=false,blur=1,brightness=1,contrast=1,drop=1
+,grayscale=0,hue=1,invert=1,opacity=10,saturate=1,link=''
 
 </script>
 <style>
@@ -51,6 +51,17 @@ input::placeholder{
 	justify-content: space-around;
 	align-items: center;
 }
+#link{
+	width:100%;
+	display:flex;
+	justify-content: center;
+	vertical-align: middle;
+}
+#link input{
+	margin-left:20px;
+	border:none;
+	border-bottom:2px solid black;
+}
 </style>
 
 <header>
@@ -60,8 +71,13 @@ input::placeholder{
 </header>
 
 <div id='main'>
+	<section id='link'>
+	<h3> URL : </h3> <input bind:value={link} placeholder='Link of the image'/>
+     </section>
+
+	 <br><br>
 	<section id='image'>
-		<img src='https://cdn2.thecatapi.com/images/9LKHhMRst.false' 
+		<img src={link==''?'https://cdn2.thecatapi.com/images/9LKHhMRst.false':link} 
 		width={width} 
 		height={height} 
 		alt='img to edit' 
@@ -100,15 +116,15 @@ input::placeholder{
 	</div>
 	<br>
 	<div class='ranges'>
-	<b>GrayScale : </b> <input type="range" class="points"  min="0" max="10" bind:value={grayscale}>
+	<b>GrayScale : </b> <input type="range" class="points"  min="0" max="1" bind:value={grayscale}>
 	</div>
 	<br>
 	<div class='ranges'>
-	<b>Invert : </b> <input type="range" class="points"  min="0" max="10" bind:value={invert}>
+	<b>Invert : </b> <input type="range" class="points"  min="0" max="1" bind:value={invert}>
 		</div>
 		<br>
 	<div class='ranges'>
-	<b>Opacity : </b> <input type="range" class="points"  min="1" max="10" bind:value={opacity}>
+	<b>Opacity : </b> <input type="range" class="points"  min="0" max="1" bind:value={opacity}>
     </div>
 			<br>
 
