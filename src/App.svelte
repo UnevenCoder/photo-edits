@@ -27,6 +27,13 @@ button:focus{
 	background:none;
 	border:2px solid rgba(0,0,0,0.5);
 	transform: scale(1.2)
+
+}
+#items{
+width:95vw;
+margin:0;
+margin-left:3vw;
+
 }
 #main{
 	margin:0;
@@ -62,6 +69,42 @@ input::placeholder{
 	border:none;
 	border-bottom:2px solid black;
 }
+#flip{
+	flex-direction: column;
+}
+@media only screen and (min-width: 800px) {
+#main{
+	display:flex;
+	flex-direction: row-reverse;
+	width:100vw;
+	margin:0;
+	padding:0;
+	justify-content:space-evenly;
+	align-items: baseline;
+}
+#link{
+	margin-bottom:auto;
+	height:fit-content;
+}
+.ranges{
+	display:flex;
+	justify-content: space-between;
+	flex-direction: column;
+	margin-right:100px;
+}
+#items{
+	padding: 20px;
+	display:flex;
+	flex-direction: column;
+	justify-content:center; 
+border:2px solid crimson;
+width:20vw;
+box-shadow: 5px 10px 8px 10px #888888;
+padding-bottom: 0;
+}
+
+}
+
 </style>
 
 <header>
@@ -71,12 +114,13 @@ input::placeholder{
 </header>
 
 <div id='main'>
-	<section id='link'>
-	<h3> URL : </h3> <input bind:value={link} placeholder='Link of the image'/>
-     </section>
 
-	 <br><br>
 	<section id='image'>
+		<section id='link'>
+			<h3> URL : </h3> <input bind:value={link} placeholder='Link of the image'/>
+			 </section>
+		
+			 <br><br>
 		<img src={link==''?'https://cdn2.thecatapi.com/images/9LKHhMRst.false':link} 
 		width={width} 
 		height={height} 
@@ -88,10 +132,11 @@ input::placeholder{
 	</section>
 	<br>
 	{#if x == 'Basic'}
-	<section>
+	<section id='items'>
 		<b> Width : </b><input bind:value={width} placeholder='Width'/>
+	<br>
 		<b> Height : </b><input bind:value={height} placeholder='Height'/>
-		<br><br>
+		
 		<div id='flip'>
 			<div>
 		<b> Flip Vertically   :  </b><input type='checkbox' bind:checked={flipv} />
@@ -101,35 +146,32 @@ input::placeholder{
 		</div>
 
 	</div>
-
-	<br>
 <div class='ranges'>
 	<b>Brightness : </b> <input type="range" class="points"  min="1" max="10" bind:value={brightness}>
 	</div>
-	<br>
+
 	<div class='ranges'>
 	<b>Saturaton : </b> <input type="range" class="points"  min="0" max="10" bind:value={saturate}>
 	</div>
-	<br>
+
 	<div class='ranges'>
 	<b>Contrast : </b> <input type="range" class="points"  min="0" max="10" bind:value={contrast}>
 	</div>
-	<br>
+
 	<div class='ranges'>
 	<b>GrayScale : </b> <input type="range" class="points"  min="0" max="10" bind:value={grayscale}>
 	</div>
-	<br>
+	
 	<div class='ranges'>
 	<b>Invert : </b> <input type="range" class="points"  min="0" max="10" bind:value={invert}>
 		</div>
-		<br>
+	
 	<div class='ranges'>
 	<b>Opacity : </b> <input type="range" class="points"  min="0" max="10" bind:value={opacity}>
     </div>
-			<br>
+		
 
-	<br>
-	<br>
+
 
 	</section>
 	{:else if x=='Border'}
