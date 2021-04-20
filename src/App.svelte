@@ -1,6 +1,6 @@
 <script>
-let x='Basic', width=300,height=300,fliph=false,flipv=false,blur=1,brightness=1,contrast=1,drop=1
-,grayscale=0,hue=1,invert=1,opacity=10,saturate=1,link=''
+let x='Basic', width=300,height=300,fliph=false,flipv=false,blur=1,brightness=10,contrast=10,drop=1
+,grayscale=0,hue=1,invert=0,opacity=10,saturate=10,link=''
 
 </script>
 <style>
@@ -83,7 +83,7 @@ input::placeholder{
 		alt='img to edit' 
 		style="
 		transform: scale({flipv?-1:1},{fliph?-1:1});
-		filter: brightness({brightness}) invert({invert}) saturate({saturate}) contrast({contrast}) grayscale({grayscale}) opacity({opacity})
+		filter: brightness({brightness/10}) invert({invert/10}) saturate({saturate/10}) contrast({contrast/10}) grayscale({grayscale/10}) opacity({opacity/10})
 		"/>
 	</section>
 	<br>
@@ -108,23 +108,23 @@ input::placeholder{
 	</div>
 	<br>
 	<div class='ranges'>
-	<b>Saturaton : </b> <input type="range" class="points"  min="1" max="10" bind:value={saturate}>
+	<b>Saturaton : </b> <input type="range" class="points"  min="0" max="10" bind:value={saturate}>
 	</div>
 	<br>
 	<div class='ranges'>
-	<b>Contrast : </b> <input type="range" class="points"  min="1" max="10" bind:value={contrast}>
+	<b>Contrast : </b> <input type="range" class="points"  min="0" max="10" bind:value={contrast}>
 	</div>
 	<br>
 	<div class='ranges'>
-	<b>GrayScale : </b> <input type="range" class="points"  min="0" max="1" bind:value={grayscale}>
+	<b>GrayScale : </b> <input type="range" class="points"  min="0" max="10" bind:value={grayscale}>
 	</div>
 	<br>
 	<div class='ranges'>
-	<b>Invert : </b> <input type="range" class="points"  min="0" max="1" bind:value={invert}>
+	<b>Invert : </b> <input type="range" class="points"  min="0" max="10" bind:value={invert}>
 		</div>
 		<br>
 	<div class='ranges'>
-	<b>Opacity : </b> <input type="range" class="points"  min="0" max="1" bind:value={opacity}>
+	<b>Opacity : </b> <input type="range" class="points"  min="0" max="10" bind:value={opacity}>
     </div>
 			<br>
 
