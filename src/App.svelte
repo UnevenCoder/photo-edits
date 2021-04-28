@@ -58,7 +58,7 @@
 <header>
   <button on:click={() => (x = "Basic")}> Basic </button>
   <button on:click={() => (x = "Border")}> Frame </button>
-  <button on:click={() => (x = "Rotate")}> Tools </button>
+  <button on:click={() => (x = "Rotate")}> Curvature </button>
 </header>
 
 <div id="main">
